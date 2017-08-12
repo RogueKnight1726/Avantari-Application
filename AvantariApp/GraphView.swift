@@ -30,7 +30,7 @@ class GraphView: UIView, ChartViewDelegate {
 //        self.init(frame: frame)
         print("Values count: \(values.count)")
         let gradientColors = [UIColor.cyan.cgColor, UIColor.cyan.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor] as CFArray
-        let colorLocations:[CGFloat] = [1.0, 0.54, 0.53, 0.0]
+        let colorLocations:[CGFloat] = [1.0, 0.58, 0.57, 0.0]
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
         var yValues : [ChartDataEntry] = [ChartDataEntry]()
         
@@ -54,7 +54,8 @@ class GraphView: UIView, ChartViewDelegate {
         lineChart.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         lineChart.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         lineChart.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-        
+        lineChart.leftAxis.axisMaximum = 12
+        lineChart.chartDescription?.text = ""
         lineChart.data?.notifyDataChanged()
         lineChart.notifyDataSetChanged()
         

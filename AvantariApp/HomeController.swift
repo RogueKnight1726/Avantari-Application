@@ -12,6 +12,8 @@ import RealmSwift
 import Charts
 
 class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartViewDelegate, SocketIOManagerProtocol {
+    @IBOutlet weak var currentResponseValue: UILabel!
+    @IBOutlet weak var totalResponseNumber: UILabel!
     var socketManager: SocketIOManager!
     @IBOutlet weak var stopContainer: UIView!
     @IBOutlet weak var startContainer: UIView!
@@ -45,6 +47,7 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         self.storedValues = List(valueList)
         if (self.storedValues.count != 0){
             if storedValues.count > 9 {
+                self.totalResponseNumber.text = String(storedValues.count)
                 fetchLastTenItems()
                 return
             }
@@ -57,12 +60,14 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.stopContainer.transform = .identity
         }, completion: nil)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     @IBAction func stopServer(_ sender: Any) {
         self.socketManager.stopConnection()
-        UIView.animate(withDuration: 0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.stopContainer.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height / 2)
         }, completion: nil)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func addToRealm(currentValue: Int){
@@ -70,15 +75,17 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         valueObject.value = currentValue
         valueObject.id = UUID().uuidString
         valueObject.save()
+        let valueList: Results<ServerValue> = {self.realm.objects(ServerValue.self)}()
+        self.storedValues = List(valueList)
+        self.currentResponseValue.text = String(valueObject.value)
+        self.totalResponseNumber.text = String(storedValues.count)
         if storedValues.count > 9 {
             fetchLastTenItems()
             return
         }
         
-        let valueList: Results<ServerValue> = {self.realm.objects(ServerValue.self)}()
-        self.storedValues = List(valueList)
-        self.valueForChart.append(valueObject.value)
         
+        self.valueForChart.append(valueObject.value)
         populateChart()
         
     }
@@ -94,6 +101,17 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         }
         print(storedValues.count)
         populateChart()
+    }
+    
+    @IBAction func clearHistoryButtonPressed(_ sender: Any) {
+        clearHistory()
+    }
+    
+    func clearHistory(){
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
     
 }

@@ -39,10 +39,9 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
         
             vc.addToRealm(currentValue: currentResponse)
             if currentResponse == self.temp {
-                startNotification(repeatedVale: currentResponse)
-            
-            temp = currentResponse
+            startNotification(repeatedVale: currentResponse)
         }
+        temp = currentResponse
         
         
     }
@@ -58,7 +57,7 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
     func startNotification(repeatedVale: Int){
         let content = UNMutableNotificationContent()
         content.body = "The number \(repeatedVale) has repeated"
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound(named: "alert.mp3")
         if let path = Bundle.main.path(forResource: "alert", ofType: "png") {
             let url = URL(fileURLWithPath: path)
             
