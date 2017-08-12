@@ -1,0 +1,25 @@
+PODS:
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
+  - Socket.IO-Client-Swift (10.2.0)
+
+DEPENDENCIES:
+  - Charts
+  - RealmSwift
+  - Socket.IO-Client-Swift
+
+SPEC CHECKSUMS:
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  Socket.IO-Client-Swift: ecd7fe4d2746a7557e71c2d6e95e23e3be31ddd1
+
+PODFILE CHECKSUM: 5c7526564272d3c4ea95d95277666afef80c8e43
+
+COCOAPODS: 1.2.0

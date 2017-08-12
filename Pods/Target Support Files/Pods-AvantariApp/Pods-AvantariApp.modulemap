@@ -1,0 +1,6 @@
+framework module Pods_AvantariApp {
+  umbrella header "Pods-AvantariApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
