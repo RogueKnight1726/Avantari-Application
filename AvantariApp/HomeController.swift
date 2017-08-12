@@ -11,7 +11,8 @@ import UserNotifications
 import RealmSwift
 import Charts
 
-class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartViewDelegate {
+class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartViewDelegate, SocketIOManagerProtocol {
+    var socketManager: SocketIOManager!
     @IBOutlet weak var stopContainer: UIView!
     @IBOutlet weak var startContainer: UIView!
     @IBOutlet weak var containerView: UIView!
@@ -21,6 +22,7 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
     var valueForChart = [Int]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        socketManager = SocketIOManager(controller: self)
         updateFromRealm()
         UIView.animate(withDuration: 0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.stopContainer.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height / 2)
@@ -51,13 +53,13 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
     }
     
     @IBAction func startServer(_ sender: Any) {
-        SocketIOManager.sharedInstance.establishConnection()
+        self.socketManager.establishConnection()
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.stopContainer.transform = .identity
         }, completion: nil)
     }
     @IBAction func stopServer(_ sender: Any) {
-        SocketIOManager.sharedInstance.stopConnection()
+        self.socketManager.stopConnection()
         UIView.animate(withDuration: 0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.stopContainer.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height / 2)
         }, completion: nil)

@@ -12,13 +12,14 @@ import UserNotifications
 
 class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
     
-    static let sharedInstance = SocketIOManager()
-    var vc: HomeController?
+    
+    var vc = HomeController()
     let requestIdentifier = "SampleRequest"
     var temp = 0
     var socket = SocketIOClient(socketURL: URL(string: "http://ios-test.us-east-1.elasticbeanstalk.com")!, config: [.nsp("/random")])
     override init() {
         super.init()
+        
         socket.on("capture") { (dataArray, ack) in
             let responseArray = dataArray as! [Int]
             self.checkResponseEquality(responseArray: responseArray)
@@ -35,11 +36,14 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
     func checkResponseEquality(responseArray: [Int]){
         
         let currentResponse = responseArray[0]
-        vc?.addToRealm(currentValue: currentResponse)
-        if currentResponse == self.temp {
-            startNotification(repeatedVale: currentResponse)
+        
+            vc.addToRealm(currentValue: currentResponse)
+            if currentResponse == self.temp {
+                startNotification(repeatedVale: currentResponse)
+            
+            temp = currentResponse
         }
-        temp = currentResponse
+        
         
     }
     
@@ -83,4 +87,7 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
         completionHandler([.alert,.badge,.sound])
     }
 
+}
+protocol SocketIOManagerProtocol {
+    func addToRealm(currentValue: Int)
 }
