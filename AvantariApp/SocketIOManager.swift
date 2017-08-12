@@ -17,6 +17,7 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
     let requestIdentifier = "SampleRequest"
     var temp = 0
     var socket = SocketIOClient(socketURL: URL(string: "http://ios-test.us-east-1.elasticbeanstalk.com")!, config: [.nsp("/random")])
+    
     override init() {
         super.init()
         
@@ -33,6 +34,7 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
         vc = controller
     }
     
+    //Check the current value with the previous value for equality
     func checkResponseEquality(responseArray: [Int]){
         
         let currentResponse = responseArray[0]
@@ -87,6 +89,8 @@ class SocketIOManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
 }
+
+
 protocol SocketIOManagerProtocol {
     func addToRealm(currentValue: Int)
 }

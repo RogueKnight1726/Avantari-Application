@@ -31,6 +31,7 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         }, completion: nil)
     }
     
+    
     func populateChart() {
         self.graphView.removeFromSuperview()
         self.graphView.update(values: self.storedValues, frame: self.graphView.frame)
@@ -42,6 +43,8 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         graphView.bottomAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0).isActive = true
     }
     
+    
+    //Get the values straight from Realm.
     func updateFromRealm(){
         let valueList: Results<ServerValue> = {self.realm.objects(ServerValue.self)}()
         self.storedValues = List(valueList)
@@ -55,12 +58,14 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         }
     }
     
+    
     @IBAction func startServer(_ sender: Any) {
         self.socketManager.establishConnection()
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.stopContainer.transform = .identity
         }, completion: nil)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
     }
     @IBAction func stopServer(_ sender: Any) {
         self.socketManager.stopConnection()
@@ -70,6 +75,8 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
+    
+    //This method is called from the SocketIOManager class to update Realm
     func addToRealm(currentValue: Int){
         let valueObject = ServerValue()
         valueObject.value = currentValue
@@ -90,6 +97,7 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         
     }
     
+    //If there are more than 10 values stored in Realm, we fetch the last 10 values to build the Chart
     func fetchLastTenItems(){
         let valueList: Results<ServerValue> = {self.realm.objects(ServerValue.self)}()
         let size = valueList.count
@@ -111,6 +119,7 @@ class HomeController: UIViewController,UNUserNotificationCenterDelegate,ChartVie
         let realm = try! Realm()
         try! realm.write {
             realm.deleteAll()
+            updateFromRealm()
         }
     }
     

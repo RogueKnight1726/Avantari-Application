@@ -25,9 +25,8 @@ class GraphView: UIView, ChartViewDelegate {
     }
     
     
-    
+    //Update the values of the chart with Values passed from the Controller Object (HomeController)
     func update(values: List<ServerValue>, frame: CGRect){
-//        self.init(frame: frame)
         print("Values count: \(values.count)")
         let gradientColors = [UIColor.cyan.cgColor, UIColor.cyan.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor] as CFArray
         let colorLocations:[CGFloat] = [1.0, 0.58, 0.57, 0.0]
@@ -55,6 +54,7 @@ class GraphView: UIView, ChartViewDelegate {
         lineChart.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         lineChart.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         lineChart.leftAxis.axisMaximum = 12
+        lineChart.autoresizesSubviews = false
         lineChart.chartDescription?.text = ""
         lineChart.data?.notifyDataChanged()
         lineChart.notifyDataSetChanged()

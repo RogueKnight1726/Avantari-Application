@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		015FEF721F3B9A230010D97E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FEF711F3B9A230010D97E /* AppDelegate.swift */; };
-		015FEF771F3B9A230010D97E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015FEF751F3B9A230010D97E /* Main.storyboard */; };
 		015FEF791F3B9A230010D97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015FEF781F3B9A230010D97E /* Assets.xcassets */; };
 		015FEF7C1F3B9A230010D97E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015FEF7A1F3B9A230010D97E /* LaunchScreen.storyboard */; };
 		015FEF871F3B9A230010D97E /* AvantariAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015FEF861F3B9A230010D97E /* AvantariAppTests.swift */; };
@@ -19,9 +18,10 @@
 		01B7D1A71F3EF4A000B7760F /* startWaitImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B7D1A61F3EF4A000B7760F /* startWaitImage.png */; };
 		01B7D1AA1F3F0AFA00B7760F /* alert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01B7D1A91F3F0AFA00B7760F /* alert.mp3 */; };
 		01B7D1B01F3F1A6100B7760F /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B7D1AF1F3F1A6100B7760F /* splash.png */; };
+		01B7D1B41F3F236300B7760F /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B7D1B31F3F236300B7760F /* wait.png */; };
+		01B7D1B71F3F26A000B7760F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B7D1B51F3F26A000B7760F /* Main.storyboard */; };
 		01DE66A31F3C62420033DD73 /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 01DE66A21F3C62420033DD73 /* alert.png */; };
 		01DE66A61F3C6B280033DD73 /* ServerValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE66A51F3C6B280033DD73 /* ServerValue.swift */; };
-		01DE66A81F3C77BF0033DD73 /* ServerValueList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE66A71F3C77BF0033DD73 /* ServerValueList.swift */; };
 		1DE1A807ECF8D238636A4BD7 /* Pods_AvantariApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C615FCAFC216670102FDCDB /* Pods_AvantariApp.framework */; };
 		2769C8BDEB35727F5BBDA9B4 /* Pods_AvantariAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB686930BD3F52DED87765B /* Pods_AvantariAppTests.framework */; };
 		E48978C33A37CDABCC7C59F3 /* Pods_AvantariAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBA50B36FCD12BE335CC1DD /* Pods_AvantariAppUITests.framework */; };
@@ -47,7 +47,6 @@
 /* Begin PBXFileReference section */
 		015FEF6E1F3B9A230010D97E /* AvantariApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvantariApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015FEF711F3B9A230010D97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		015FEF761F3B9A230010D97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		015FEF781F3B9A230010D97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015FEF7B1F3B9A230010D97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		015FEF7D1F3B9A230010D97E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,10 +62,11 @@
 		01B7D1A61F3EF4A000B7760F /* startWaitImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startWaitImage.png; sourceTree = "<group>"; };
 		01B7D1A91F3F0AFA00B7760F /* alert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert.mp3; sourceTree = "<group>"; };
 		01B7D1AF1F3F1A6100B7760F /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		01B7D1B31F3F236300B7760F /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
+		01B7D1B61F3F26A000B7760F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01CB3916706400E5F9AF78BF /* Pods-AvantariAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvantariAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AvantariAppTests/Pods-AvantariAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		01DE66A21F3C62420033DD73 /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
 		01DE66A51F3C6B280033DD73 /* ServerValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerValue.swift; sourceTree = "<group>"; };
-		01DE66A71F3C77BF0033DD73 /* ServerValueList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerValueList.swift; sourceTree = "<group>"; };
 		0DB686930BD3F52DED87765B /* Pods_AvantariAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvantariAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C615FCAFC216670102FDCDB /* Pods_AvantariApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvantariApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BAED22FCC0F0598995B9D28 /* Pods-AvantariAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvantariAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AvantariAppUITests/Pods-AvantariAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +137,6 @@
 				01DE66A41F3C698D0033DD73 /* Models */,
 				01DE66A11F3C62370033DD73 /* Images */,
 				015FEFA11F3B9BF60010D97E /* Controllers */,
-				015FEF751F3B9A230010D97E /* Main.storyboard */,
 				015FEF781F3B9A230010D97E /* Assets.xcassets */,
 				015FEF7A1F3B9A230010D97E /* LaunchScreen.storyboard */,
 				015FEF7D1F3B9A230010D97E /* Info.plist */,
@@ -167,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				015FEFA21F3B9C140010D97E /* HomeController.swift */,
+				01B7D1B51F3F26A000B7760F /* Main.storyboard */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				01DE66A21F3C62420033DD73 /* alert.png */,
+				01B7D1B31F3F236300B7760F /* wait.png */,
 				01B7D1A61F3EF4A000B7760F /* startWaitImage.png */,
 				01B7D1AF1F3F1A6100B7760F /* splash.png */,
 			);
@@ -201,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				01DE66A51F3C6B280033DD73 /* ServerValue.swift */,
-				01DE66A71F3C77BF0033DD73 /* ServerValueList.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -348,11 +348,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B7D1B41F3F236300B7760F /* wait.png in Resources */,
 				01DE66A31F3C62420033DD73 /* alert.png in Resources */,
 				01B7D1B01F3F1A6100B7760F /* splash.png in Resources */,
+				01B7D1B71F3F26A000B7760F /* Main.storyboard in Resources */,
 				015FEF7C1F3B9A230010D97E /* LaunchScreen.storyboard in Resources */,
 				015FEF791F3B9A230010D97E /* Assets.xcassets in Resources */,
-				015FEF771F3B9A230010D97E /* Main.storyboard in Resources */,
 				01B7D1A71F3EF4A000B7760F /* startWaitImage.png in Resources */,
 				01B7D1AA1F3F0AFA00B7760F /* alert.mp3 in Resources */,
 			);
@@ -518,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				01DE66A61F3C6B280033DD73 /* ServerValue.swift in Sources */,
-				01DE66A81F3C77BF0033DD73 /* ServerValueList.swift in Sources */,
 				015FEFA01F3B9AE60010D97E /* SocketIOManager.swift in Sources */,
 				015FEF721F3B9A230010D97E /* AppDelegate.swift in Sources */,
 				015FEFA31F3B9C140010D97E /* HomeController.swift in Sources */,
@@ -558,20 +558,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		015FEF751F3B9A230010D97E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				015FEF761F3B9A230010D97E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		015FEF7A1F3B9A230010D97E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				015FEF7B1F3B9A230010D97E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		01B7D1B51F3F26A000B7760F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01B7D1B61F3F26A000B7760F /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
